@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChessProject.ChessController">
+   <top>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chess" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="60.0" />
+         </BorderPane.margin>
+      </Text>
+   </top>
+   <padding>
+      <Insets left="100.0" right="150.0" top="10.0" />
+   </padding>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Insert Filename" />
+            <TextField fx:id="fileNameSave" />
+            <Button fx:id="saveGameFile" mnemonicParsing="false" onAction="#saveGame" prefHeight="40.0" prefWidth="118.0" text="Save Game">
+               <VBox.margin>
+                  <Insets bottom="70.0" />
+               </VBox.margin>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Load File" />
+            <TextField fx:id="fileNameLoad" />
+            <Button fx:id="loadGameFile" mnemonicParsing="false" onAction="#loadGame" prefHeight="47.0" prefWidth="116.0" text="Load game" />
+         </children>
+         <padding>
+            <Insets left="10.0" top="70.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER_LEFT" prefHeight="698.0" prefWidth="100.0">
+         <children>
+            <Text fx:id="moveTurnText" strokeType="OUTSIDE" strokeWidth="0.0" text="White to move" textAlignment="CENTER" wrappingWidth="161.310546875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="60.0" />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;(FromSquare, ToSquare)&quot;" textAlignment="CENTER" wrappingWidth="161.7421875">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Text>
+            <TextField fx:id="moveId">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="playMoveButton" mnemonicParsing="false" onAction="#moveButtonPressed" prefHeight="25.0" prefWidth="167.0" text="Play move!" />
+         </children>
+         <padding>
+            <Insets left="20.0" right="2.0" top="20.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></VBox>
+   </right>
+   <bottom>
+      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="60.0" />
+         </BorderPane.margin></HBox>
+   </bottom>
+   <center>
+      <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="650.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Board.png" />
+               </image>
+            </ImageView>
+            <GridPane fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="310.0" minWidth="310.0" prefHeight="650.0" prefWidth="650.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <padding>
+                  <Insets bottom="28.0" left="25.0" right="10.0" top="9.0" />
+               </padding>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin>
+               <children>
+                  <ImageView fx:id="RB1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/Black/RookBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="KB1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                     <image>
+                        <Image url="@Images/Black/KnightBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="BB1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                     <image>
+                        <Image url="@Images/Black/BishopBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="QB" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                     <image>
+                        <Image url="@Images/Black/QueenBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="KB" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                     <image>
+                        <Image url="@Images/Black/KingBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="BB2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
+                     <image>
+                        <Image url="@Images/Black/BishopBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="KB2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6">
+                     <image>
+                        <Image url="@Images/Black/KnightBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="RB2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7">
+                     <image>
+                        <Image url="@Images/Black/RookBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="PB1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="PB2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PB3" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PB4" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PB5" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PB6" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PB7" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PB8" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@Images/Black/PawnBlack.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="RW1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/RookWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="KW1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/KnightWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="BW1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/BishopWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="QW" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/QueenWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="KW" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/KingWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="BW2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/BishopWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="KW2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/KnightWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="RW2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                     <image>
+                        <Image url="@Images/White/RookWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="PW1" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="PW2" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PW3" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PW4" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PW5" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PW6" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PW7" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ImageView>
+                  <ImageView fx:id="PW8" fitHeight="75.0" fitWidth="80.0" onMouseDragged="#followMouse" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                     <image>
+                        <Image url="@Images/White/PawnWhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

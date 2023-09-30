@@ -1,0 +1,10 @@
+e2,e4
+f7,f5
+e4,e5
+d7,d6
+e5,d6
+e8,f7
+d6,d7
+f7,f6
+d7,c8
+Queen
